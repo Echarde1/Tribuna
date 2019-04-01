@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.danildanil.rickmorty"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    supportLibVers = "28.0.0"
+    glideVers = "4.8.0"
+    retrofitVers = "2.4.0"
+    retrofitLoggingVers = "3.10.0"
+    ktxVersion = '0.3'
+    rxAndroidVers = "2.1.0"
+    rxJavaVers = "2.2.0"
+    rxKotlinVers = "2.2.0"
+    daggerVers = "2.19"
+    butterKnifeVers = "8.8.1"
+    ciceroneVers = "4.0.2"
+    rxPermissionsVers = "0.10.2"
+    archVers = "1.1.1"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$supportLibVers"
+    implementation "com.android.support:recyclerview-v7:$supportLibVers"
+    implementation "com.android.support:cardview-v7:$supportLibVers"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    implementation "com.github.bumptech.glide:glide:$glideVers"
+    kapt "com.github.bumptech.glide:compiler:$glideVers"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVers"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVers"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVers"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVers"
+    implementation "com.squareup.okhttp3:logging-interceptor:$retrofitLoggingVers"
+
+    implementation "androidx.core:core-ktx:$ktxVersion"
+
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVers"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVers"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVers"
+
+    implementation "com.google.dagger:dagger:$daggerVers"
+    kapt "com.google.dagger:dagger-compiler:$daggerVers"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVers"
+
+    implementation "ru.terrakok.cicerone:cicerone:$ciceroneVers"
+
+    implementation "com.github.tbruyelle:rxpermissions:$rxPermissionsVers"
+
+    implementation "android.arch.persistence.room:runtime:$archVers"
+    implementation "android.arch.persistence.room:rxjava2:$archVers"
+    kapt "android.arch.persistence.room:compiler:$archVers"
+
+    implementation "com.jakewharton:butterknife:$butterKnifeVers"
+    kapt "com.jakewharton:butterknife-compiler:$butterKnifeVers"
+}
